@@ -2,10 +2,26 @@ name: xpkg
 description: Build and publish Crossplane packages.
 inputs:
   command:
-    description: kubectl crossplane command
+    description: kubectl crossplane command.
+    required: true
+    default: build
+  type:
+    description: Crossplane package type.
+    required: true
+    default: configuration
+  path:
+    description: Path to artifacts.
+    required: true
+    default: "."
+  destination:
+    description: Destination for artifacts. If building must prefix with --name=.
     required: true
 runs:
   using: docker
   image: Dockerfile
   args:
+    - "./kubectl-crossplane"
     - ${{ inputs.command }}
+    - ${{ inputs.type }}
+    - '-f ${{ inputs.path }}'
+    - ${{ inputs.destination }}
