@@ -23,5 +23,6 @@ runs:
     - "kubectl-crossplane"
     - ${{ inputs.command }}
     - ${{ inputs.type }}
-    - '-f ${{ inputs.path }}'
+    - "-f"
+    - ${{ inputs.path }}
     - ${{ inputs.destination }}
