@@ -24,6 +24,8 @@ jobs:
           registry: registry.upbound.io
           username: ${{ secrets.DOCKER_USR }}
           password: ${{ secrets.DOCKER_PSW }}
+      - name: Tree
+        run: tree
       - name: Build xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
