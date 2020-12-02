@@ -24,19 +24,17 @@ jobs:
           registry: registry.upbound.io
           username: ${{ secrets.DOCKER_USR }}
           password: ${{ secrets.DOCKER_PSW }}
-      - name: Tree
-        run: tree
       - name: Build xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
           command: build
           type: configuration
-          path: xpkg-action/test/xpkg-action-test
+          path: ./test/xpkg-action-test
           destination: --name=xpkg-action-test
       - name: Push xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
           command: push
           type: configuration
-          path: xpkg-action/test/xpkg-action-test/xpkg-action-test.xpkg
+          path: ./test/xpkg-action-test/xpkg-action-test.xpkg
           destination: registry.upbound.io/crossplane-test/xpkg-action-test:v0.0.1
