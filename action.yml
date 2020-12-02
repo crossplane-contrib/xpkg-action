@@ -20,7 +20,7 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - "./kubectl-crossplane"
+    - "kubectl-crossplane"
     - ${{ inputs.command }}
     - ${{ inputs.type }}
     - '-f ${{ inputs.path }}'
