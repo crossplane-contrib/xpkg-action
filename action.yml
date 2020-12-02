@@ -1,0 +1,10 @@
+name: xpkg
+description: Build and publish Crossplane packages.
+inputs:
+  command:
+    description: kubectl crossplane command
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: ${{ inputs.command }}
