@@ -29,12 +29,12 @@ jobs:
         with:
           command: build
           type: configuration
-          path: /github/workspace/test/xpkg-action-test
+          path: test/xpkg-action-test
           destination: --name=xpkg-action-test
       - name: Push xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
           command: push
           type: configuration
-          path: /github/workspace/test/xpkg-action-test/xpkg-action-test.xpkg
+          path: test/xpkg-action-test/xpkg-action-test.xpkg
           destination: registry.upbound.io/crossplane-test/xpkg-action-test:v0.0.1
