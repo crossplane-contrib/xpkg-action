@@ -27,8 +27,14 @@ jobs:
       - name: Build xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
-          command: kubectl-crossplane build configuration -f /github/workspace/test/xpkg-action-test --name=config-no
+          command: build
+          type: configuration
+          path: /github/workspace/test/xpkg-action-test
+          destination: --name=xpkg-action-test
       - name: Push xpkg
         uses: crossplane-contrib/xpkg-action@master
         with:
-          command: kubectl-crossplane push configuration -f /github/workspace/test/xpkg-action-test/xpkg-action-test.xpkg registry.upbound.io/crossplane-test/xpkg-action-test:v0.0.1
+          command: push
+          type: configuration
+          path: /github/workspace/test/xpkg-action-test/xpkg-action-test.xpkg
+          destination: registry.upbound.io/crossplane-test/xpkg-action-test:v0.0.1
