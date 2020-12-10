@@ -37,7 +37,7 @@ jobs:
         uses: crossplane-contrib/xpkg-action@master
         with:
           channel: ${{ github.event.inputs.channel }}
-          version: ${{ github.event.inputs.channel }}
+          version: ${{ github.event.inputs.version }}
           command: build configuration -f test/xpkg-action-test --name=xpkg-action-test
       - name: Push xpkg
         uses: crossplane-contrib/xpkg-action@master
