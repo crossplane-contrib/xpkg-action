@@ -1,6 +1,14 @@
 name: xpkg
 description: Build and publish Crossplane packages.
 inputs:
+  channel:
+    description: release channel
+    required: true
+    default: stable
+  version:
+    description: release version
+    required: true
+    default: current
   command:
     description: kubectl crossplane command
     required: true
@@ -9,5 +17,8 @@ runs:
   steps: 
     - run: "[ -f kubectl-crossplane ] || curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh"
       shell: bash
+      env:
+        CHANNEL: ${{ inputs.channel }}
+        VERSION: ${{ inputs.version }}
     - run: "./kubectl-crossplane ${{ inputs.command }}"
       shell: bash
