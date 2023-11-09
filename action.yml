@@ -18,7 +18,7 @@ runs:
     - run: "[ -f crossplane ] || curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh"
       shell: bash
       env:
-        CHANNEL: ${{ inputs.channel }}
-        VERSION: ${{ inputs.version }}
+        XP_CHANNEL: ${{ inputs.channel }}
+        XP_VERSION: ${{ inputs.version }}
     - run: "./crossplane ${{ inputs.command }}"
       shell: bash
